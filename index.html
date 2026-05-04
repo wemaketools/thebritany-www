@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Brittany — AI-powered software for African enterprises</title>
+<meta name="description" content="We build AI-powered software for telcos, mining companies, banks, and logistics firms in Botswana and the SADC region. Solar energy intelligence, BPO automation, trade compliance, and more." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css" />
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<div id="root"></div>
+
+<script type="text/babel" src="data/solutions.jsx"></script>
+<script type="text/babel" src="components/chrome.jsx"></script>
+<script type="text/babel" src="pages/home.jsx"></script>
+<script type="text/babel" src="pages/solutions.jsx"></script>
+<script type="text/babel" src="pages/about-contact.jsx"></script>
+
+<script type="text/babel">
+const { RouterProvider, useRouter, Navbar, Footer } = window;
+
+function AppBody() {
+  const { path } = useRouter();
+
+  // Handle /#how anchor: if user comes to "/" with anchor, scroll
+  React.useEffect(() => {
+    // On path change, if it's the home page check for hash target via router's own trailing segment
+    // We already scroll to top on hashchange; we don't support sub-anchors here to avoid conflict.
+  }, [path]);
+
+  let page;
+  if (path === "/" || path === "") page = <window.HomePage />;
+  else if (path === "/solutions") page = <window.SolutionsPage />;
+  else if (path.startsWith("/solutions/")) {
+    const slug = path.split("/solutions/")[1];
+    page = <window.SolutionDetail slug={slug} />;
+  }
+  else if (path === "/about") page = <window.AboutPage />;
+  else if (path === "/contact") page = <window.ContactPage />;
+  else page = <window.NotFoundInline />;
+
+  return (
+    <React.Fragment>
+      <Navbar />
+      <div key={path} className="page-transition">{page}</div>
+      <Footer />
+    </React.Fragment>
+  );
+}
+
+function App() {
+  return (
+    <RouterProvider>
+      <AppBody />
+    </RouterProvider>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+
+<style>
+.page-transition { animation: pageIn .4s ease-out; }
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+</body>
+</html>
