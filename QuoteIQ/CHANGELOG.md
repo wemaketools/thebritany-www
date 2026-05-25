@@ -2,6 +2,9 @@
 
 Versions shown in the sidebar and stamped on exported feedback.
 
+## v0.4.1
+- Fixed **dark/slate-mode text contrast** in the Prototype options panel: persona names rendered in near-black because the `.persona` `<button>` didn't inherit the theme text colour. Set an explicit `color: var(--text)` so names are legible in every theme.
+
 ## v0.4.0
 - Added prototype **version number** (sidebar + footer), bumped each iteration.
 - Added **Comment mode**: hover any card/KPI/row, click the **+** to leave feedback linked to that page + item. Comments persist locally, show numbered pins, and export as Markdown (with version + reviewer) via **Copy all**.

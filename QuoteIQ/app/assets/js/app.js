@@ -5,7 +5,7 @@
   const QIQ = (window.QIQ = window.QIQ || {});
   const { ui, data, fmt } = QIQ;
 
-  const VERSION = 'v0.4.0';
+  const VERSION = 'v0.4.1';
   QIQ.VERSION = VERSION;
 
   const NAV = [

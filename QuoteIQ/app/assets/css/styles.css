@@ -382,7 +382,7 @@ table.tbl tbody tr:last-child td { border-bottom:none; }
 .swatch.active { border-color: var(--text); }
 .swatch.active::after { content:"✓"; position:absolute; inset:0; display:grid; place-items:center; color:#fff; font-size:14px; font-weight:800; }
 .persona-list { display:flex; flex-direction:column; gap:8px; }
-.persona { display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:11px; border:1px solid var(--border); background: var(--surface); text-align:left; width:100%; }
+.persona { display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:11px; border:1px solid var(--border); background: var(--surface); color: var(--text); text-align:left; width:100%; }
 .persona:hover { border-color: var(--border-strong); background: var(--surface-2); }
 .persona.active { border-color: var(--accent); background: var(--accent-soft); }
 .persona .pn { font-weight:650; font-size:13.5px; }
