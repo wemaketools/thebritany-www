@@ -100,3 +100,86 @@ const SOLUTIONS = [
 ];
 
 window.SOLUTIONS = SOLUTIONS;
+
+// ---------- Capability strip ----------
+// Technical strengths shown as proof of breadth (Showcase Request Pack §6).
+const CAPABILITIES = [
+  {
+    t: "AI / LLM tools",
+    d: "Classification, extraction, summarisation, agents, workflow routing, and decision support.",
+  },
+  {
+    t: "Enterprise apps",
+    d: "Internal platforms, customer portals, workflow apps, SaaS products, CRM-style tools, and admin systems.",
+  },
+  {
+    t: "Dashboards / control towers",
+    d: "Operational visibility layers, BI dashboards, pipeline views, SLA tracking, and management reporting.",
+  },
+  {
+    t: "Integrations / infrastructure",
+    d: "APIs, cloud architecture, authentication, data pipelines, deployment, monitoring, and scalable systems.",
+  },
+  {
+    t: "Product / UX quality",
+    d: "Interface improvements, product flows, user testing, and designs that busy operators actually use.",
+  },
+  {
+    t: "Relevant sectors",
+    d: "Insurance, fintech, energy, logistics, mining, telecoms, education, and government.",
+  },
+];
+window.CAPABILITIES = CAPABILITIES;
+
+// ---------- Selected work / proof of build quality ----------
+// Anonymised capability cards (Showcase Request Pack §3–5). Per the pack, proof
+// can be anonymised: a well-written card that explains the problem, what was
+// built, and the capability it proves is valid without naming every client.
+const SELECTED_WORK = [
+  {
+    featured: true,
+    title: "QuoteIQ — insurance quoting & intake",
+    sector: "Insurance",
+    problem:
+      "Manual quoting and intake slowed brokers down and made it hard to respond to customers quickly and consistently.",
+    built:
+      "A guided quoting and intake tool that structures customer data, standardises quotes, and gives the team a clean view of every enquiry.",
+    capability: ["AI / LLM", "Enterprise app", "Dashboarding", "Integrations"],
+    proof:
+      "The Brittany's insurance wedge for the Botswana market, grounded in local client context.",
+  },
+  {
+    title: "AI-assisted claims triage platform",
+    sector: "Insurance / financial services",
+    problem:
+      "High-volume manual intake made it hard for teams to prioritise, route, and resolve work quickly.",
+    built:
+      "A workflow layer combining document intake, classification, routing, dashboard visibility, and exception handling.",
+    capability: [
+      "AI workflow automation",
+      "Enterprise app",
+      "Integrations",
+      "Dashboarding",
+      "Operational design",
+    ],
+    proof:
+      "Built by team members who have shipped production-grade enterprise software across multiple markets.",
+  },
+  {
+    title: "Operations control tower",
+    sector: "Logistics / field operations",
+    problem:
+      "Leaders had no single, real-time view across a distributed operation, so issues surfaced late and cost money.",
+    built:
+      "A control-tower dashboard pulling from multiple systems into one operational view, with SLA tracking and exception alerts.",
+    capability: [
+      "Dashboards",
+      "Integrations",
+      "Cloud infrastructure",
+      "Operational design",
+    ],
+    proof:
+      "Anonymised capability example — shown to demonstrate build quality, not to disclose a client.",
+  },
+];
+window.SELECTED_WORK = SELECTED_WORK;

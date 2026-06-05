@@ -190,6 +190,177 @@ function HomeSolutions() {
   );
 }
 
+function HomeCapabilities() {
+  return (
+    <section className="bg-gray-50" id="capabilities">
+      <div className="container">
+        <Reveal>
+          <span className="eyebrow">What we can build</span>
+          <h2 className="display-l" style={{ color: "var(--navy-900)", maxWidth: 760 }}>
+            The technical bench behind the work.
+          </h2>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <p className="body-l" style={{ color: "var(--gray-800)", opacity: 0.78, maxWidth: 600, marginTop: 20, marginBottom: 8 }}>
+            Our focus areas are the front door. Behind them is a team that has shipped AI tools, enterprise apps, dashboards, integrations, and production infrastructure across multiple markets.
+          </p>
+        </Reveal>
+
+        <div className="capability-grid">
+          {window.CAPABILITIES.map((c, i) => (
+            <Reveal key={c.t} delay={i * 0.06}>
+              <div className="capability-card">
+                <div className="mono-label" style={{ color: "var(--teal-500)", marginBottom: 14 }}>
+                  0{i + 1}
+                </div>
+                <h3 className="h3" style={{ color: "var(--navy-900)", marginBottom: 10 }}>{c.t}</h3>
+                <p style={{ color: "var(--gray-800)", opacity: 0.78, fontSize: 14.5, lineHeight: 1.6 }}>{c.d}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+      <style>{`
+        .capability-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 18px;
+          margin-top: 48px;
+        }
+        @media (min-width: 700px) { .capability-grid { grid-template-columns: 1fr 1fr; gap: 20px; } }
+        @media (min-width: 1000px) { .capability-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
+        .capability-card {
+          padding: 30px;
+          border: 1px solid var(--gray-100);
+          border-radius: 16px;
+          background: white;
+          height: 100%;
+        }
+      `}</style>
+    </section>
+  );
+}
+
+function HomeSelectedWork() {
+  return (
+    <section className="bg-white" id="selected-work">
+      <div className="container">
+        <div className="solutions-intro">
+          <Reveal>
+            <span className="eyebrow">Proof of build quality</span>
+            <h2 className="display-l" style={{ color: "var(--navy-900)", maxWidth: 760 }}>
+              Selected work from the team.
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="body-l" style={{ color: "var(--gray-800)", opacity: 0.78, maxWidth: 600, marginTop: 20 }}>
+              A few examples of what the people behind The Brittany have built. Some are named, some are anonymised to protect client confidentiality — but each one shows a real operational problem solved with software.
+            </p>
+          </Reveal>
+        </div>
+
+        <div className="work-grid">
+          {window.SELECTED_WORK.map((w, i) => (
+            <Reveal key={w.title} delay={i * 0.08}>
+              <div className={`work-card${w.featured ? " featured" : ""}`}>
+                <div className="work-card-head">
+                  <span className="mono-label" style={{ color: "var(--teal-500)" }}>{w.sector}</span>
+                  {w.featured && <span className="work-flag">Flagship</span>}
+                </div>
+                <h3 className="h2" style={{ color: "var(--navy-900)", margin: "12px 0 18px", maxWidth: 460 }}>
+                  {w.title}
+                </h3>
+                <div className="work-row">
+                  <span className="work-row-label">Problem</span>
+                  <p>{w.problem}</p>
+                </div>
+                <div className="work-row">
+                  <span className="work-row-label">What we built</span>
+                  <p>{w.built}</p>
+                </div>
+                <div className="work-chips">
+                  {w.capability.map((c) => (
+                    <span key={c} className="work-chip">{c}</span>
+                  ))}
+                </div>
+                <p className="work-proof">{w.proof}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+      <style>{`
+        .work-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 20px;
+          margin-top: 56px;
+        }
+        @media (min-width: 900px) {
+          .work-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+          .work-card.featured { grid-column: 1 / -1; }
+        }
+        .work-card {
+          background: var(--gray-50);
+          border: 1px solid var(--gray-100);
+          border-radius: 16px;
+          padding: 32px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        }
+        .work-card.featured {
+          background: white;
+          border-color: var(--teal-100);
+          box-shadow: 0 18px 40px -28px rgba(0,178,169,0.4);
+        }
+        .work-card-head { display: flex; align-items: center; gap: 12px; }
+        .work-flag {
+          font-family: var(--mono-font);
+          font-size: 10.5px;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: var(--teal-500);
+          background: var(--teal-100);
+          padding: 4px 9px;
+          border-radius: 999px;
+        }
+        .work-row { margin-bottom: 16px; }
+        .work-row-label {
+          display: block;
+          font-family: var(--mono-font);
+          font-size: 11px;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: var(--gray-400);
+          margin-bottom: 5px;
+        }
+        .work-row p { color: var(--gray-800); opacity: 0.84; font-size: 14.5px; line-height: 1.6; }
+        .work-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 20px; }
+        .work-chip {
+          font-family: var(--mono-font);
+          font-size: 11.5px;
+          letter-spacing: 0.03em;
+          padding: 6px 10px;
+          border-radius: 6px;
+          border: 1px solid var(--gray-100);
+          background: white;
+          color: var(--gray-800);
+        }
+        .work-proof {
+          margin-top: auto;
+          padding-top: 18px;
+          border-top: 1px solid var(--gray-100);
+          font-size: 13.5px;
+          line-height: 1.6;
+          color: var(--gray-400);
+          font-style: italic;
+        }
+      `}</style>
+    </section>
+  );
+}
+
 function HomeHowWeWork() {
   const steps = [
     { t: "Discover", d: "We spend time inside your operations before writing a line of code. We interview your team, map your workflows, and find the exact friction point worth solving." },
@@ -337,6 +508,8 @@ function HomePage() {
       <HomeHero />
       <HomeProblem />
       <HomeSolutions />
+      <HomeCapabilities />
+      <HomeSelectedWork />
       <HomeHowWeWork />
       <HomeStats />
       <HomeCTA />
