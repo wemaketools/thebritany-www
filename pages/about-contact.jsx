@@ -40,7 +40,7 @@ function AboutPage() {
       n: "Thomas Messier",
       r: "Head of Operations",
       loc: "Canada",
-      bio: "Delivery, customer operations, and enterprise execution across our projects.",
+      bio: "Oversees delivery, customer operations, and enterprise execution across projects. Ensures priorities are aligned, timelines are managed, and teams maintain strong communication, accountability, and operational follow-through.",
     },
     {
       n: "Kwaku Otchere",
