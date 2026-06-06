@@ -22,35 +22,31 @@ function AboutPage() {
     },
   ];
 
-  // Bio structure (Showcase Request Pack §7): title · location · capability · proof.
+  // Bio structure: title · location · bio.
   const team = [
     {
       n: "Kabo Botlhole",
       r: "Founder & Market Lead",
       loc: "Gaborone, Botswana",
-      cap: "Insurance and digital transformation, with deep local client context.",
-      proof: "Leads The Brittany's Botswana market entry and the QuoteIQ insurance wedge.",
+      bio: "Insurance and digital transformation, with deep local client context. Leads The Brittany's Botswana market entry and the QuoteIQ insurance wedge.",
     },
     {
       n: "Andrew Hewitt",
       r: "Head of Engineering",
       loc: "Japan",
-      cap: "Full-stack engineering, from database and back-end to front-end.",
-      proof: "Decades shipping multi-platform apps across government, education, and the private sector. Now focused on AI-powered fintech.",
+      bio: "Full-stack engineering, from database and back-end to front-end. Decades shipping multi-platform apps across government, education, and the private sector. Now focused on AI-powered fintech.",
     },
     {
       n: "Thomas Messier",
       r: "Head of Operations",
       loc: "Canada",
-      cap: "Delivery, customer operations, and enterprise execution.",
-      proof: "Runs delivery and customer operations across our projects.",
+      bio: "Delivery, customer operations, and enterprise execution across our projects.",
     },
     {
       n: "Kwaku Otchere",
       r: "Head of Product",
       loc: "United States",
-      cap: "Product, design, and UX for tools busy operators actually use.",
-      proof: "Designs and ships the product experience across our platforms.",
+      bio: "Product, design, and UX for tools busy operators actually use. Designs and ships the product experience across our platforms.",
     },
   ];
 
@@ -254,17 +250,10 @@ function AboutPage() {
                       lineHeight: 1.6,
                       color: "var(--gray-800)",
                       opacity: 0.78,
-                      marginBottom: 14,
                     }}
                   >
-                    {p.cap}
+                    {p.bio}
                   </p>
-                  <div className="team-proof">
-                    <span className="mono-label" style={{ color: "var(--gray-400)", fontSize: 10.5, display: "block", marginBottom: 5 }}>
-                      Proof
-                    </span>
-                    {p.proof}
-                  </div>
                 </div>
               </Reveal>
             ))}
@@ -318,15 +307,6 @@ function AboutPage() {
           display: flex;
           flex-direction: column;
           height: 100%;
-        }
-        .team-proof {
-          margin-top: auto;
-          padding-top: 14px;
-          border-top: 1px solid var(--gray-100);
-          font-size: 13px;
-          line-height: 1.55;
-          color: var(--gray-800);
-          opacity: 0.86;
         }
         .avatar {
           width: 72px; height: 72px;
