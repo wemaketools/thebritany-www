@@ -35,8 +35,8 @@ function AboutPage() {
       n: "Andrew Hewitt",
       r: "Head of Engineering",
       loc: "Japan",
-      cap: "AI, application engineering, and cloud infrastructure.",
-      proof: "Has shipped production-grade enterprise platforms across fintech and energy.",
+      cap: "Full-stack engineering, from database and back-end to front-end.",
+      proof: "Decades shipping multi-platform apps across government, education, and the private sector. Now focused on AI-powered fintech.",
     },
     {
       n: "Thomas Messier",
