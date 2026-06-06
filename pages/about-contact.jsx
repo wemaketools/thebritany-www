@@ -34,23 +34,23 @@ function AboutPage() {
     {
       n: "Andrew Hewitt",
       r: "Head of Engineering",
-      loc: "Global team",
-      cap: "AI/LLM, application engineering, and cloud infrastructure.",
+      loc: "Japan",
+      cap: "AI, application engineering, and cloud infrastructure.",
       proof: "Has shipped production-grade enterprise platforms across fintech and energy.",
     },
     {
       n: "Thomas Messier",
       r: "Head of Operations",
-      loc: "Global team",
+      loc: "Canada",
       cap: "Delivery, customer operations, and enterprise execution.",
-      proof: "Runs the operations layer behind our hybrid AI-plus-human workflows.",
+      proof: "Runs delivery and customer operations across our projects.",
     },
     {
       n: "Kwaku Otchere",
       r: "Head of Product",
-      loc: "Global team",
-      cap: "Product, design, and UX for interfaces busy operators actually use.",
-      proof: "Designs and ships the product experiences across our platforms.",
+      loc: "United States",
+      cap: "Product, design, and UX for tools busy operators actually use.",
+      proof: "Designs and ships the product experience across our platforms.",
     },
   ];
 
@@ -89,9 +89,10 @@ function AboutPage() {
                 marginTop: 20,
               }}
             >
-              We are a technology company headquartered in Gaborone, Botswana.
-              We build AI-powered software for enterprises across the SADC
-              region.
+              We are a technology company rooted in Gaborone, Botswana, with a
+              distributed engineering and product team across North America,
+              Asia, and Africa. We build AI-powered software for enterprises in
+              Botswana and the wider region.
             </p>
           </Reveal>
         </div>
@@ -119,19 +120,19 @@ function AboutPage() {
                 <p className="body-l">
                   Global enterprise software is built, priced, and supported for
                   global enterprise buyers. When it lands in an African context,
-                  it rarely fits. Integrations break on unreliable connectivity.
-                  Pricing assumes USD budgets. Support teams have no context for
+                  it rarely fits. Integrations break on unreliable connectivity,
+                  pricing assumes USD budgets, and support teams have no feel for
                   the workflows they're being asked to fix.
                 </p>
                 <p className="body-l">
-                  Meanwhile, the local alternatives are often under-engineered —
-                  built on shoestring budgets by teams that never had the luxury
-                  of doing things properly.
+                  The local alternatives are often the opposite problem:
+                  under-engineered, built on tight budgets by teams that never
+                  had the room to do things properly.
                 </p>
                 <p className="body-l">
-                  We built The Brittany to sit in the middle: product thinking,
-                  AI engineering, and commercial experience in the African
-                  market — at a bar that competes globally.
+                  We built The Brittany to sit in between. Product thinking, AI
+                  engineering, and real commercial experience in the African
+                  market, held to a bar that competes globally.
                 </p>
               </div>
             </Reveal>
@@ -206,8 +207,9 @@ function AboutPage() {
               className="body-l muted"
               style={{ maxWidth: 620, marginBottom: 48 }}
             >
-              We keep the core team small and hire specialists per engagement.
-              Everyone here has shipped enterprise software before.
+              A Botswana-based partner and a distributed engineering and product
+              team across North America, Asia, and Africa. Everyone here has
+              shipped enterprise software before.
             </p>
           </Reveal>
           <div className="team-grid">
@@ -618,7 +620,7 @@ function ContactPage() {
                     </div>
                     <div className="form-field">
                       <label htmlFor="solution">
-                        Which solution interests you?
+                        Which area is closest to your problem?
                       </label>
                       <select
                         id="solution"
@@ -626,10 +628,10 @@ function ContactPage() {
                         onChange={update("solution")}
                       >
                         <option value="">Select one...</option>
-                        <option value="solar">Solar Energy</option>
-                        <option value="bpo">BPO Operations</option>
-                        <option value="trade">Trade Compliance</option>
-                        <option value="film">Film & Creator</option>
+                        <option value="insurance">Insurance & Financial Services</option>
+                        <option value="ai-workflow">AI Workflow Automation</option>
+                        <option value="enterprise-apps">Custom Enterprise Apps</option>
+                        <option value="dashboards">Dashboards & Control Towers</option>
                         <option value="other">Other</option>
                         <option value="unsure">Not sure yet</option>
                       </select>
