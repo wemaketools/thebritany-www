@@ -18,29 +18,29 @@ function HomeHero() {
         <Reveal>
           <span className="mono-label" style={{ color: "var(--teal-400)", marginBottom: 28, display: "inline-block", whiteSpace: "nowrap" }}>
             <span style={{ display: "inline-block", width: 8, height: 8, borderRadius: 50, background: "var(--teal-500)", marginRight: 10, verticalAlign: "middle" }} />
-            Gaborone · Botswana · SADC
+            Gaborone · Botswana · Global engineering team
           </span>
         </Reveal>
 
         <Reveal delay={0.1}>
           <h1 className="display-xl" style={{ maxWidth: 980, marginBottom: 28, color: "white" }}>
-            We build the software<br/>Africa's enterprises need.
+            Enterprise software for African companies ready to move faster.
           </h1>
         </Reveal>
 
         <Reveal delay={0.22}>
-          <p className="body-l" style={{ maxWidth: 620, color: "rgba(255,255,255,0.7)", marginBottom: 40 }}>
-            AI-powered solutions for telcos, mining companies, banks, and logistics firms across the SADC region. Built by people who understand the context.
+          <p className="body-l" style={{ maxWidth: 660, color: "rgba(255,255,255,0.7)", marginBottom: 40 }}>
+            The Brittany builds AI-powered workflow platforms, dashboards, and custom applications for organisations that need better visibility, faster decisions, and cleaner execution. We are rooted in Botswana and supported by a distributed engineering and product team across North America, Asia, and Africa.
           </p>
         </Reveal>
 
         <Reveal delay={0.34}>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
-            <Link to="/solutions" className="btn btn-primary">
-              See our solutions →
+            <Link to="/contact" className="btn btn-primary">
+              Talk to us about a problem →
             </Link>
-            <Link to="/contact" className="btn btn-secondary">
-              Get in touch
+            <Link to="/solutions" className="btn btn-secondary">
+              Explore what we build
             </Link>
           </div>
         </Reveal>
@@ -59,6 +59,39 @@ function HomeHero() {
         <span>Scroll</span>
         <span style={{ width: 1, height: 32, background: "rgba(255,255,255,0.3)" }} />
       </div>
+    </section>
+  );
+}
+
+function HomeProofStrip() {
+  const items = [
+    "Insurance transformation",
+    "AI workflow automation",
+    "Custom enterprise apps",
+    "Dashboards & data products",
+    "Integrations",
+  ];
+  return (
+    <section className="bg-navy-900" style={{ padding: "26px 0" }}>
+      <div className="container">
+        <div className="proof-strip">
+          {items.map((t, i) => (
+            <React.Fragment key={t}>
+              {i > 0 && <span className="proof-sep" aria-hidden>·</span>}
+              <span className="proof-item mono-label">{t}</span>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+      <style>{`
+        .proof-strip {
+          display: flex; flex-wrap: wrap;
+          align-items: center; justify-content: center;
+          gap: 12px 18px;
+        }
+        .proof-item { color: rgba(255,255,255,0.82); letter-spacing: 0.06em; white-space: nowrap; }
+        .proof-sep { color: var(--teal-500); }
+      `}</style>
     </section>
   );
 }
@@ -85,7 +118,7 @@ function HomeProblem() {
                 Most technology deployed here is either too expensive, too generic, or built by people with no understanding of the local regulatory, operational, and infrastructure context.
               </p>
               <p className="body-l">
-                We built The Brittany to close that gap — combining product thinking, AI engineering, and commercial experience in the African market.
+                We built The Brittany to close that gap, by combining product thinking, AI engineering, and real commercial experience in the African market.
               </p>
             </div>
           </Reveal>
@@ -108,12 +141,12 @@ function HomeSolutions() {
           <Reveal>
             <span className="eyebrow">What we build</span>
             <h2 className="display-l" style={{ color: "var(--navy-900)", maxWidth: 820 }}>
-              Custom software for whatever your operation actually needs.
+              We take on specific operational problems where custom software can create measurable value.
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="body-l" style={{ color: "var(--gray-800)", opacity: 0.78, maxWidth: 580, marginTop: 20 }}>
-              We take on any enterprise operational problem worth solving with software — AI tooling, internal platforms, integrations, data pipelines, customer-facing products. The four below are recent focus areas that show how we work. Your problem probably looks different, and that's the point.
+              These four areas are where we focus right now. Think of them as examples of how we work, not a fixed menu. If your problem looks different and the right software would fix it, that is exactly the kind of thing we take on.
             </p>
           </Reveal>
         </div>
@@ -121,7 +154,7 @@ function HomeSolutions() {
         <Reveal delay={0.18}>
           <div className="mono-label muted" style={{ marginTop: 64, marginBottom: 20, display: "flex", alignItems: "center", gap: 12 }}>
             <span style={{ width: 28, height: 1, background: "var(--gray-100)" }} />
-            Recent focus areas
+            Where we focus
           </div>
         </Reveal>
 
@@ -190,11 +223,131 @@ function HomeSolutions() {
   );
 }
 
+function HomeSelectedWork() {
+  return (
+    <section className="bg-white" id="selected-work">
+      <div className="container">
+        <div className="solutions-intro">
+          <Reveal>
+            <span className="eyebrow">Proof of build quality</span>
+            <h2 className="display-l" style={{ color: "var(--navy-900)", maxWidth: 760 }}>
+              Selected work from the team.
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="body-l" style={{ color: "var(--gray-800)", opacity: 0.78, maxWidth: 600, marginTop: 20 }}>
+              A few examples of what the people behind The Brittany have built. Some are named and some are anonymised to protect client confidentiality, but each one shows a real operational problem solved with software.
+            </p>
+          </Reveal>
+        </div>
+
+        <div className="work-grid">
+          {window.SELECTED_WORK.map((w, i) => (
+            <Reveal key={w.title} delay={i * 0.08}>
+              <div className={`work-card${w.featured ? " featured" : ""}`}>
+                <div className="work-card-head">
+                  <span className="mono-label" style={{ color: "var(--teal-500)" }}>{w.sector}</span>
+                  {w.featured && <span className="work-flag">Flagship</span>}
+                </div>
+                <h3 className="h2" style={{ color: "var(--navy-900)", margin: "12px 0 18px", maxWidth: 460 }}>
+                  {w.title}
+                </h3>
+                <div className="work-row">
+                  <span className="work-row-label">Problem</span>
+                  <p>{w.problem}</p>
+                </div>
+                <div className="work-row">
+                  <span className="work-row-label">What we built</span>
+                  <p>{w.built}</p>
+                </div>
+                <div className="work-chips">
+                  {w.capability.map((c) => (
+                    <span key={c} className="work-chip">{c}</span>
+                  ))}
+                </div>
+                <p className="work-proof">{w.proof}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+      <style>{`
+        .work-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 20px;
+          margin-top: 56px;
+        }
+        @media (min-width: 900px) {
+          .work-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+          .work-card.featured { grid-column: 1 / -1; }
+        }
+        .work-card {
+          background: var(--gray-50);
+          border: 1px solid var(--gray-100);
+          border-radius: 16px;
+          padding: 32px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        }
+        .work-card.featured {
+          background: white;
+          border-color: var(--teal-100);
+          box-shadow: 0 18px 40px -28px rgba(0,178,169,0.4);
+        }
+        .work-card-head { display: flex; align-items: center; gap: 12px; }
+        .work-flag {
+          font-family: var(--mono-font);
+          font-size: 10.5px;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: var(--teal-500);
+          background: var(--teal-100);
+          padding: 4px 9px;
+          border-radius: 999px;
+        }
+        .work-row { margin-bottom: 16px; }
+        .work-row-label {
+          display: block;
+          font-family: var(--mono-font);
+          font-size: 11px;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: var(--gray-400);
+          margin-bottom: 5px;
+        }
+        .work-row p { color: var(--gray-800); opacity: 0.84; font-size: 14.5px; line-height: 1.6; }
+        .work-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 20px; }
+        .work-chip {
+          font-family: var(--mono-font);
+          font-size: 11.5px;
+          letter-spacing: 0.03em;
+          padding: 6px 10px;
+          border-radius: 6px;
+          border: 1px solid var(--gray-100);
+          background: white;
+          color: var(--gray-800);
+        }
+        .work-proof {
+          margin-top: auto;
+          padding-top: 18px;
+          border-top: 1px solid var(--gray-100);
+          font-size: 13.5px;
+          line-height: 1.6;
+          color: var(--gray-400);
+          font-style: italic;
+        }
+      `}</style>
+    </section>
+  );
+}
+
 function HomeHowWeWork() {
   const steps = [
     { t: "Discover", d: "We spend time inside your operations before writing a line of code. We interview your team, map your workflows, and find the exact friction point worth solving." },
     { t: "Design", d: "We prototype quickly and put real interfaces in front of your people. We only build what gets a yes from the people who will use it." },
-    { t: "Build", d: "Small, fast sprints. Working software in weeks, not months. No big reveals — you see progress every week." },
+    { t: "Build", d: "Small, fast sprints. Working software in weeks, not months. No big reveals, just visible progress every week." },
     { t: "Deploy", d: "We handle the full deployment: infrastructure, security, onboarding, and training. We do not disappear after launch." },
     { t: "Optimise", d: "We stay on as an ongoing technology partner. The software improves as your operations do." }
   ];
@@ -248,9 +401,9 @@ function HomeHowWeWork() {
 
 function HomeStats() {
   const stats = [
-    { n: 4, suffix: "", label: "Solution verticals" },
+    { n: 4, suffix: "", label: "Capability areas" },
     { n: 300, suffix: "M+", label: "SADC regional market" },
-    { n: 70, suffix: "%", prefix: "60–", label: "BPO volume handled by AI", fixed: true },
+    { n: 3, suffix: "", label: "Continents in our team" },
     { n: 90, suffix: " days", label: "To a working MVP", nowrap: true }
   ];
   return (
@@ -266,11 +419,7 @@ function HomeStats() {
           {stats.map((s, i) => (
             <Reveal key={s.label} delay={i * 0.08} className="stat-cell">
               <div className="stat-num" style={{ whiteSpace: "nowrap" }}>
-                {s.fixed ? (
-                  <span style={{ whiteSpace: "nowrap" }}>60–<CountUp to={70} suffix="%" /></span>
-                ) : (
-                  <CountUp to={s.n} suffix={s.suffix} prefix={s.prefix || ""} />
-                )}
+                <CountUp to={s.n} suffix={s.suffix} prefix={s.prefix || ""} />
               </div>
               <div className="mono-label muted" style={{ marginTop: 8 }}>{s.label}</div>
             </Reveal>
@@ -335,8 +484,10 @@ function HomePage() {
   return (
     <main id="main">
       <HomeHero />
+      <HomeProofStrip />
       <HomeProblem />
       <HomeSolutions />
+      <HomeSelectedWork />
       <HomeHowWeWork />
       <HomeStats />
       <HomeCTA />

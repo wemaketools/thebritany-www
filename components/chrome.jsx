@@ -224,7 +224,7 @@ function Footer() {
               <span>The Brittany</span>
             </div>
             <p style={{ maxWidth: 360, color: "rgba(255,255,255,0.66)", fontSize: 15, lineHeight: 1.6 }}>
-              AI-powered software for African enterprises. Built in Gaborone, deployed across the SADC region.
+              AI-powered workflow platforms, dashboards, and custom enterprise software. Rooted in Gaborone, built by a team across North America, Asia, and Africa.
             </p>
 
           </div>

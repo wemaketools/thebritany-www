@@ -19,12 +19,12 @@ function SolutionsHero() {
         </Reveal>
         <Reveal delay={0.1}>
           <h1 className="display-l" style={{ color: "white", maxWidth: 900, marginTop: 24, marginBottom: 24 }}>
-            Four problems. Four focused solutions.
+            Four areas where software creates measurable value.
           </h1>
         </Reveal>
         <Reveal delay={0.2}>
           <p className="body-l" style={{ color: "rgba(255,255,255,0.7)", maxWidth: 680 }}>
-            Each vertical is designed around a specific, documented enterprise pain point in the SADC region. We build software that solves it.
+            Insurance and financial services, AI workflow automation, custom enterprise apps, and dashboards and control towers. These show how we work. We take on specific operational problems where the right software pays for itself.
           </p>
         </Reveal>
       </div>
@@ -367,6 +367,45 @@ function SolutionDetail({ slug }) {
         </div>
       </section>
 
+      {/* Proof point (e.g. QuoteIQ) */}
+      {s.proofPoint && (
+        <section className="bg-navy-900" style={{ position: "relative", overflow: "hidden" }}>
+          <div style={{
+            position: "absolute", inset: 0, pointerEvents: "none",
+            background: `radial-gradient(700px circle at 85% 0%, ${s.color}30, transparent 60%)`
+          }} />
+          <div className="container" style={{ position: "relative", zIndex: 2 }}>
+            <div className="proofpoint-grid">
+              <Reveal>
+                <div>
+                  <span className="mono-label" style={{ color: s.color }}>{s.proofPoint.label}</span>
+                  <h2 className="h1" style={{ color: "white", marginTop: 14, marginBottom: 18 }}>
+                    {s.proofPoint.name}
+                  </h2>
+                  <p style={{ color: "rgba(255,255,255,0.74)", fontSize: 16, lineHeight: 1.7 }}>
+                    {s.proofPoint.blurb}
+                  </p>
+                </div>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: 14 }}>
+                  {s.proofPoint.points.map((p) => (
+                    <li key={p} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                      <span style={{ marginTop: 9, width: 7, height: 7, borderRadius: 50, background: s.color, flex: "0 0 auto" }} />
+                      <span style={{ color: "rgba(255,255,255,0.82)", fontSize: 15, lineHeight: 1.55 }}>{p}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            </div>
+          </div>
+          <style>{`
+            .proofpoint-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+            @media (min-width: 900px) { .proofpoint-grid { grid-template-columns: 1.1fr 0.9fr; gap: 72px; align-items: start; } }
+          `}</style>
+        </section>
+      )}
+
       {/* CTA */}
       <section style={{ background: s.color, padding: "72px 0" }}>
         <div className="container" style={{
@@ -411,25 +450,20 @@ function SolutionDetail({ slug }) {
 
 function stackExplain(t) {
   const m = {
-    "MQTT": "Lightweight pub/sub protocol used by most solar inverters.",
-    "AWS IoT": "Managed device gateway and rules engine.",
-    "TimescaleDB": "Postgres extension optimised for time-series telemetry.",
-    "Python · FastAPI": "Service layer for pipelines and APIs.",
-    "LLM Summaries": "Generates human-readable weekly performance reports.",
     "Next.js": "Operator dashboards and public-facing apps.",
-    "LLM Orchestration": "Routes queries to the right model with guardrails.",
-    "Twilio": "Voice, SMS, and WhatsApp channels for customer contact.",
+    "Postgres": "Primary relational store for the application.",
+    "Supabase": "Auth, Postgres, and storage in one layer.",
+    "Python · FastAPI": "Service layer for pipelines and APIs.",
+    "LLM Orchestration": "Routes each item to the right model with guardrails.",
+    "LLM Extraction": "Pulls structured fields out of documents, forms, and free text.",
+    "OCR + LLM": "Reads scanned documents and forms into structured data.",
     "Vector Search": "Semantic retrieval over knowledge bases and past tickets.",
-    "Supabase": "Auth, Postgres, and storage with generous free tier.",
-    "Looker": "Business-facing analytics and QA dashboards.",
-    "Postgres": "Primary relational store for declarations and rules.",
-    "Rule Engine": "Declarative validation against live corridor rule sets.",
-    "OCR + LLM": "Extracts structured fields from scanned invoices and BoL.",
-    "PowerBI": "Finance and compliance reporting for large clients.",
-    "Mapbox": "Corridor heatmaps and shipment routing visualisations.",
-    "Stripe Connect": "Split payouts to creators, crew, and partners.",
-    "Cloudflare R2": "Low-cost object storage for media assets.",
-    "LLM Search": "Natural-language search across locations and crew."
+    "Integrations": "Connects to the systems, APIs, and data sources you already run.",
+    "Dashboards": "Operator and executive views built on live operational data.",
+    "Auth": "Authentication, roles, and access control for internal tools.",
+    "Cloud Infrastructure": "Scalable, monitored deployment on managed cloud.",
+    "Looker": "Business-facing analytics and reporting dashboards.",
+    "PowerBI": "Finance and management reporting."
   };
   return m[t] || "Purpose-selected for this workflow.";
 }

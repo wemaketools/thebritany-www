@@ -1,0 +1,35 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Brand background -->
+  <rect width="32" height="32" rx="7" fill="#0A0F1E"/>
+  <!-- The Brittany building mark (from the site logo), teal on navy -->
+  <g transform="translate(3.08,3.08) scale(0.923)">
+    <!-- Base platform -->
+    <rect x="1" y="25" width="26" height="2" rx="0.5" fill="#00B2A9"/>
+    <!-- Left wing -->
+    <rect x="1" y="17" width="7" height="8" fill="#00B2A9"/>
+    <rect x="2.5" y="18.5" width="1.5" height="2" fill="#0A0F1E"/>
+    <rect x="5" y="18.5" width="1.5" height="2" fill="#0A0F1E"/>
+    <rect x="2.5" y="22" width="1.5" height="2" fill="#0A0F1E"/>
+    <rect x="5" y="22" width="1.5" height="2" fill="#0A0F1E"/>
+    <!-- Right wing -->
+    <rect x="20" y="17" width="7" height="8" fill="#00B2A9"/>
+    <rect x="21.5" y="18.5" width="1.5" height="2" fill="#0A0F1E"/>
+    <rect x="24" y="18.5" width="1.5" height="2" fill="#0A0F1E"/>
+    <rect x="21.5" y="22" width="1.5" height="2" fill="#0A0F1E"/>
+    <rect x="24" y="22" width="1.5" height="2" fill="#0A0F1E"/>
+    <!-- Centre body -->
+    <rect x="8" y="13" width="12" height="12" fill="#00B2A9"/>
+    <rect x="9.5" y="14" width="1.2" height="11" fill="#0A0F1E" opacity="0.55"/>
+    <rect x="12.4" y="14" width="1.2" height="11" fill="#0A0F1E" opacity="0.55"/>
+    <rect x="15.3" y="14" width="1.2" height="11" fill="#0A0F1E" opacity="0.55"/>
+    <rect x="18.2" y="14" width="1.2" height="11" fill="#0A0F1E" opacity="0.55"/>
+    <!-- Pediment / cornice -->
+    <rect x="7" y="11" width="14" height="2" fill="#00B2A9"/>
+    <!-- Central tower -->
+    <rect x="11" y="4" width="6" height="7" fill="#00B2A9"/>
+    <rect x="12.5" y="5.5" width="1.2" height="2" fill="#0A0F1E"/>
+    <rect x="14.8" y="5.5" width="1.2" height="2" fill="#0A0F1E"/>
+    <!-- Tower cap -->
+    <polygon points="14,1 17,4 11,4" fill="#00B2A9"/>
+  </g>
+</svg>
