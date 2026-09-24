@@ -100,8 +100,12 @@
       var btn = form.querySelector('button[type="submit"]');
       if (btn) { btn.disabled = true; btn.textContent = "Sending..."; }
 
-      // Simulated submission (matches the original prototype behaviour).
-      setTimeout(function () {
+      var solution = form.querySelector("#solution");
+      var botcheck = form.querySelector('[name="botcheck"]');
+      var formErr = form.querySelector("[data-form-error]");
+      if (formErr) formErr.hidden = true;
+
+      var showSuccess = function () {
         var wrap = document.querySelector("[data-form-wrap]");
         if (!wrap) return;
         var first = name.split(" ")[0] || "there";
@@ -128,7 +132,31 @@
 
         var reset = box.querySelector("[data-reset]");
         if (reset) reset.addEventListener("click", function () { window.location.reload(); });
-      }, 900);
+      };
+
+      var showFailure = function () {
+        if (btn) { btn.disabled = false; btn.textContent = "Send message"; }
+        if (formErr) formErr.hidden = false;
+      };
+
+      // Submissions go to Web3Forms, which emails them to hello@thebrittany.ai.
+      // The access key is public by design: it can only send to that inbox.
+      // Sent as FormData (a "simple" request) so the browser skips the CORS preflight.
+      var data = new FormData();
+      data.append("access_key", "dc0db3fd-c077-49ee-809a-001dcf6c69b4");
+      data.append("subject", "New enquiry from " + name + " (" + company + ")");
+      data.append("from_name", "The Brittany website");
+      data.append("name", name);
+      data.append("company", company);
+      data.append("email", email);
+      data.append("area", solution && solution.value ? solution.options[solution.selectedIndex].text : "Not specified");
+      data.append("message", prob);
+      if (botcheck && botcheck.checked) data.append("botcheck", "on");
+
+      fetch("https://api.web3forms.com/submit", { method: "POST", body: data })
+        .then(function (res) { return res.json().then(function (data) { return res.ok && data.success; }); })
+        .then(function (ok) { if (ok) showSuccess(); else showFailure(); })
+        .catch(showFailure);
     });
   }
 })();
