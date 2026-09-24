@@ -1,94 +1,52 @@
 /* The Brittany — progressive enhancement for the static site.
-   The HTML renders fully without this file; this only adds the
-   scroll reveals, count-up stats, navbar state, mobile drawer,
-   and contact-form behaviour that used to live in React. */
+   Every page renders fully without this file; it only adds the
+   mobile menu, scaling of the product screenshots on small screens,
+   and contact-form behaviour. */
 (function () {
   "use strict";
 
-  // ---------- Reveal on scroll ----------
-  var reveals = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window) {
-    var revealObs = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) {
-            e.target.classList.add("in");
-            revealObs.unobserve(e.target);
-          }
-        });
-      },
-      { rootMargin: "-80px 0px" }
-    );
-    reveals.forEach(function (el) { revealObs.observe(el); });
-  } else {
-    reveals.forEach(function (el) { el.classList.add("in"); });
-  }
-
-  // ---------- Count up ----------
-  var counters = document.querySelectorAll(".count-up");
-  function runCount(el) {
-    var to = parseFloat(el.getAttribute("data-to")) || 0;
-    var suffix = el.getAttribute("data-suffix") || "";
-    var prefix = el.getAttribute("data-prefix") || "";
-    var duration = 1400;
-    var startTime = null;
-    function tick(t) {
-      if (startTime === null) startTime = t;
-      var p = Math.min(1, (t - startTime) / duration);
-      var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = prefix + Math.round(to * eased).toLocaleString() + suffix;
-      if (p < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  }
-  if ("IntersectionObserver" in window) {
-    var countObs = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) {
-            runCount(e.target);
-            countObs.unobserve(e.target);
-          }
-        });
-      },
-      { rootMargin: "-40px 0px" }
-    );
-    counters.forEach(function (el) { countObs.observe(el); });
-  } else {
-    counters.forEach(function (el) {
-      el.textContent =
-        (el.getAttribute("data-prefix") || "") +
-        (parseFloat(el.getAttribute("data-to")) || 0).toLocaleString() +
-        (el.getAttribute("data-suffix") || "");
+  // ---------- Fit product renders to their container ----------
+  // Each [data-fit] wrapper holds a UI render designed at a fixed width.
+  // Scale it down (never up) so it keeps its layout on narrow screens.
+  var fits = document.querySelectorAll("[data-fit]");
+  function fitAll() {
+    fits.forEach(function (wrap) {
+      var inner = wrap.firstElementChild;
+      if (!inner) return;
+      var designWidth = parseFloat(wrap.getAttribute("data-fit")) || inner.offsetWidth;
+      var crop = parseFloat(wrap.getAttribute("data-crop")) || 0;
+      var scale = Math.min(1, wrap.clientWidth / designWidth);
+      inner.style.transform = scale < 1 ? "scale(" + scale + ")" : "";
+      wrap.style.height = Math.ceil((crop || inner.offsetHeight) * scale) + "px";
     });
   }
-
-  // ---------- Navbar scroll state ----------
-  var navbar = document.querySelector("[data-navbar]");
-  if (navbar) {
-    var onScroll = function () {
-      if (window.scrollY > 40) {
-        navbar.classList.remove("transparent");
-        navbar.classList.add("solid");
-      } else {
-        navbar.classList.add("transparent");
-        navbar.classList.remove("solid");
-      }
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
+  if (fits.length) {
+    fitAll();
+    window.addEventListener("resize", fitAll, { passive: true });
+    window.addEventListener("load", fitAll);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitAll);
   }
 
-  // ---------- Mobile drawer ----------
+  // ---------- Mobile menu ----------
   var drawer = document.querySelector("[data-drawer]");
   var openBtn = document.querySelector("[data-drawer-open]");
   var closeBtn = document.querySelector("[data-drawer-close]");
-  function closeDrawer() { if (drawer) drawer.classList.remove("open"); }
-  if (drawer && openBtn) openBtn.addEventListener("click", function () { drawer.classList.add("open"); });
-  if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
+  function setDrawer(open) {
+    if (!drawer) return;
+    drawer.classList.toggle("open", open);
+    document.body.style.overflow = open ? "hidden" : "";
+    if (openBtn) openBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    if (open && closeBtn) closeBtn.focus();
+    if (!open && openBtn) openBtn.focus();
+  }
+  if (drawer && openBtn) openBtn.addEventListener("click", function () { setDrawer(true); });
+  if (closeBtn) closeBtn.addEventListener("click", function () { setDrawer(false); });
   if (drawer) {
     drawer.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", closeDrawer);
+      a.addEventListener("click", function () { setDrawer(false); });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && drawer.classList.contains("open")) setDrawer(false);
     });
   }
 
@@ -110,6 +68,8 @@
       if (!wrap) return;
       var existing = wrap.querySelector(".err");
       if (existing) existing.remove();
+      var input = wrap.querySelector("input, textarea, select");
+      if (input) input.setAttribute("aria-invalid", msg ? "true" : "false");
       if (msg) {
         var d = document.createElement("div");
         d.className = "err";
@@ -126,15 +86,16 @@
       var prob = form.querySelector("#problem").value.trim();
 
       var errs = {};
-      if (!name) errs.name = "Your name is required.";
-      if (!company) errs.company = "Company is required.";
-      if (!email) errs.email = "Email is required.";
-      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errs.email = "Use a valid email address.";
+      if (!name) errs.name = "Enter your name.";
+      if (!company) errs.company = "Enter your company.";
+      if (!email) errs.email = "Enter your email address.";
+      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errs.email = "Use a valid email address, like you@company.com.";
       if (!prob) errs.problem = "Tell us what you're trying to solve.";
-      else if (prob.length < 20) errs.problem = "A bit more context, please (minimum 20 characters).";
+      else if (prob.length < 20) errs.problem = "Add a bit more context (at least 20 characters).";
 
       ["name", "company", "email", "problem"].forEach(function (f) { setErr(f, errs[f]); });
-      if (Object.keys(errs).length) return;
+      var firstErr = ["name", "company", "email", "problem"].filter(function (f) { return errs[f]; })[0];
+      if (firstErr) { form.querySelector("#" + firstErr).focus(); return; }
 
       var btn = form.querySelector('button[type="submit"]');
       if (btn) { btn.disabled = true; btn.textContent = "Sending..."; }
@@ -147,15 +108,16 @@
 
         var box = document.createElement("div");
         box.className = "form-success";
+        box.setAttribute("role", "status");
         box.innerHTML =
-          '<div style="width:48px;height:48px;border-radius:50px;background:var(--teal-100);color:var(--teal-500);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:20px">✓</div>' +
-          '<h3 class="h2" style="color:var(--navy-900);margin-bottom:12px">Message received.</h3>' +
-          '<p style="color:var(--gray-800);opacity:0.78;margin-bottom:24px;line-height:1.65"></p>' +
-          '<button class="btn btn-secondary-light" data-reset>Send another</button>';
+          '<div class="tick" aria-hidden="true">&#10003;</div>' +
+          '<h2 class="h2">Message sent</h2>' +
+          "<p></p>" +
+          '<button class="btn btn-outline" type="button" data-reset>Send another message</button>';
 
-        // Build the message text safely (avoid injecting raw user input as HTML).
+        // Build the message text safely (never inject raw user input as HTML).
         var p = box.querySelector("p");
-        p.appendChild(document.createTextNode("Thanks, " + first + ". We'll get back to you within two working days at "));
+        p.appendChild(document.createTextNode("Thanks, " + first + ". We'll reply within two working days at "));
         var strong = document.createElement("strong");
         strong.textContent = email;
         p.appendChild(strong);

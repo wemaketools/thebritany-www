@@ -5,192 +5,91 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>About | The Brittany</title>
 <meta name="description" content="The Brittany is a technology company rooted in Gaborone, Botswana, with a distributed engineering and product team across North America, Asia, and Africa." />
+<meta name="theme-color" content="#ffffff" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Inter:wght@400..700&display=swap" rel="stylesheet">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 <link rel="stylesheet" href="/styles.css" />
-<script>document.documentElement.classList.add('js');</script>
+<script src="/assets/site.js" defer></script>
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to content</a>
-<header class="navbar transparent" data-navbar>
-  <div class="navbar-inner">
-    <a href="/" class="nav-logo" style="white-space:nowrap"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1" y="25" width="26" height="2" rx="0.5" fill="currentColor"/><rect x="1" y="17" width="7" height="8" fill="currentColor"/><rect x="2.5" y="18.5" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="5" y="18.5" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="2.5" y="22" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="5" y="22" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="20" y="17" width="7" height="8" fill="currentColor"/><rect x="21.5" y="18.5" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="24" y="18.5" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="21.5" y="22" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="24" y="22" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="8" y="13" width="12" height="12" fill="currentColor"/><rect x="9.5" y="14" width="1.2" height="11" fill="black" opacity="0.15"/><rect x="12.4" y="14" width="1.2" height="11" fill="black" opacity="0.15"/><rect x="15.3" y="14" width="1.2" height="11" fill="black" opacity="0.15"/><rect x="18.2" y="14" width="1.2" height="11" fill="black" opacity="0.15"/><rect x="7" y="11" width="14" height="2" fill="currentColor"/><rect x="11" y="4" width="6" height="7" fill="currentColor"/><rect x="12.5" y="5.5" width="1.2" height="2" fill="black" opacity="0.3"/><rect x="14.8" y="5.5" width="1.2" height="2" fill="black" opacity="0.3"/><polygon points="14,1 17,4 11,4" fill="currentColor"/></svg><span>The Brittany</span></a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="/solutions/">Solutions</a>
-      <a href="/#how">How We Work</a>
-      <a href="/about/" class="active">About</a>
-      <a href="/contact/" class="btn btn-primary" style="padding:10px 18px;font-size:14px">Contact</a>
-    </nav>
-    <button class="nav-hamburger" aria-label="Open menu" data-drawer-open><span></span><span></span><span></span></button>
+<header class="nav">
+  <div class="container">
+    <a class="logo" href="/" aria-label="The Brittany home"><svg class="mark" width="26" height="26" viewBox="0 0 28 28" aria-hidden="true"><rect x="1" y="25" width="26" height="2" rx=".5" fill="currentColor"/><rect x="1" y="17" width="7" height="8" fill="currentColor"/><rect x="2.5" y="18.5" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="5" y="18.5" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="2.5" y="22" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="5" y="22" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="20" y="17" width="7" height="8" fill="currentColor"/><rect x="21.5" y="18.5" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="24" y="18.5" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="21.5" y="22" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="24" y="22" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="8" y="13" width="12" height="12" fill="currentColor"/><rect x="9.5" y="14" width="1.2" height="11" fill="#fff" opacity="0.5"/><rect x="12.4" y="14" width="1.2" height="11" fill="#fff" opacity="0.5"/><rect x="15.3" y="14" width="1.2" height="11" fill="#fff" opacity="0.5"/><rect x="18.2" y="14" width="1.2" height="11" fill="#fff" opacity="0.5"/><rect x="7" y="11" width="14" height="2" fill="currentColor"/><rect x="11" y="4" width="6" height="7" fill="currentColor"/><rect x="12.5" y="5.5" width="1.2" height="2" fill="#fff" opacity="1"/><rect x="14.8" y="5.5" width="1.2" height="2" fill="#fff" opacity="1"/><polygon points="14,1 17,4 11,4" fill="currentColor"/></svg><span>The Brittany</span></a>
+    <nav class="nav-links" aria-label="Primary"><a href="/solutions/">Solutions</a><a href="/#work">Work</a><a href="/#how">How we work</a><a href="/about/" aria-current="page">About</a><a class="btn btn-sm" href="/contact/">Contact</a></nav>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-drawer-open><span></span></button>
   </div>
 </header>
-<div class="mobile-drawer" data-drawer>
-  <div class="mobile-drawer-head">
-    <div class="nav-logo" style="color:white"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1" y="25" width="26" height="2" rx="0.5" fill="currentColor"/><rect x="1" y="17" width="7" height="8" fill="currentColor"/><rect x="2.5" y="18.5" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="5" y="18.5" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="2.5" y="22" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="5" y="22" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="20" y="17" width="7" height="8" fill="currentColor"/><rect x="21.5" y="18.5" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="24" y="18.5" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="21.5" y="22" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="24" y="22" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="8" y="13" width="12" height="12" fill="currentColor"/><rect x="9.5" y="14" width="1.2" height="11" fill="black" opacity="0.15"/><rect x="12.4" y="14" width="1.2" height="11" fill="black" opacity="0.15"/><rect x="15.3" y="14" width="1.2" height="11" fill="black" opacity="0.15"/><rect x="18.2" y="14" width="1.2" height="11" fill="black" opacity="0.15"/><rect x="7" y="11" width="14" height="2" fill="currentColor"/><rect x="11" y="4" width="6" height="7" fill="currentColor"/><rect x="12.5" y="5.5" width="1.2" height="2" fill="black" opacity="0.3"/><rect x="14.8" y="5.5" width="1.2" height="2" fill="black" opacity="0.3"/><polygon points="14,1 17,4 11,4" fill="currentColor"/></svg><span>The Brittany</span></div>
-    <button aria-label="Close menu" data-drawer-close style="width:36px;height:36px;color:white;font-size:22px">✕</button>
-  </div>
-  <nav class="mobile-drawer-nav">
-    <a href="/solutions/">Solutions</a>
-    <a href="/#how">How We Work</a>
-    <a href="/about/">About</a>
-    <a href="/contact/">Contact</a>
+<div class="drawer" data-drawer role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="drawer-head"><a class="logo" href="/"><svg class="mark" width="26" height="26" viewBox="0 0 28 28" aria-hidden="true"><rect x="1" y="25" width="26" height="2" rx=".5" fill="currentColor"/><rect x="1" y="17" width="7" height="8" fill="currentColor"/><rect x="2.5" y="18.5" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="5" y="18.5" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="2.5" y="22" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="5" y="22" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="20" y="17" width="7" height="8" fill="currentColor"/><rect x="21.5" y="18.5" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="24" y="18.5" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="21.5" y="22" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="24" y="22" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="8" y="13" width="12" height="12" fill="currentColor"/><rect x="9.5" y="14" width="1.2" height="11" fill="#fff" opacity="0.5"/><rect x="12.4" y="14" width="1.2" height="11" fill="#fff" opacity="0.5"/><rect x="15.3" y="14" width="1.2" height="11" fill="#fff" opacity="0.5"/><rect x="18.2" y="14" width="1.2" height="11" fill="#fff" opacity="0.5"/><rect x="7" y="11" width="14" height="2" fill="currentColor"/><rect x="11" y="4" width="6" height="7" fill="currentColor"/><rect x="12.5" y="5.5" width="1.2" height="2" fill="#fff" opacity="1"/><rect x="14.8" y="5.5" width="1.2" height="2" fill="#fff" opacity="1"/><polygon points="14,1 17,4 11,4" fill="currentColor"/></svg><span>The Brittany</span></a><button class="drawer-close" type="button" aria-label="Close menu" data-drawer-close>&times;</button></div>
+  <nav aria-label="Mobile">
+    <a href="/solutions/">Solutions</a><a href="/#work">Work</a><a href="/#how">How we work</a><a href="/about/">About</a>
   </nav>
+  <a class="btn" href="/contact/">Contact us</a>
 </div>
 <main id="main">
-<section class="bg-navy-900" style="position:relative;padding-top:160px;padding-bottom:96px;overflow:hidden">
-  <div class="hero-bg"></div>
-  <div class="container" style="position:relative;z-index:2">
-    <div class="reveal"><span class="mono-label" style="color:var(--teal-400)">About · The Brittany</span></div>
-    <div class="reveal" style="--reveal-delay:.08s"><h1 class="display-l" style="color:white;margin-top:24px;max-width:900px">Built for Africa. Built to last.</h1></div>
-    <div class="reveal" style="--reveal-delay:.18s"><p class="body-l" style="color:rgba(255,255,255,0.72);max-width:640px;margin-top:20px">We are a technology company rooted in Gaborone, Botswana, with a distributed engineering and product team across North America, Asia, and Africa. We build AI-powered software for enterprises in Botswana and the wider region.</p></div>
-  </div>
-</section>
-
-<section class="bg-gray-50">
+<section class="page-hero">
   <div class="container">
-    <div class="about-two-col">
-      <div class="reveal">
-        <div>
-          <span class="eyebrow">Why we exist</span>
-          <h2 class="display-l" style="color:var(--navy-900);max-width:400px">The gap between global software and African enterprise.</h2>
-        </div>
-      </div>
-      <div class="reveal" style="--reveal-delay:.1s">
-        <div style="display:flex;flex-direction:column;gap:22px">
-          <p class="body-l">Global enterprise software is built, priced, and supported for global enterprise buyers. When it lands in an African context, it rarely fits. Integrations break on unreliable connectivity, pricing assumes USD budgets, and support teams have no feel for the workflows they're being asked to fix.</p>
-          <p class="body-l">The local alternatives are often the opposite problem: under-engineered, built on tight budgets by teams that never had the room to do things properly.</p>
-          <p class="body-l">We built The Brittany to sit in between. Product thinking, AI engineering, and real commercial experience in the African market, held to a bar that competes globally.</p>
-        </div>
-      </div>
+    <span class="label">About</span>
+    <h1 class="display">Built for Africa. Built to last.</h1>
+    <p class="lead">We are a technology company rooted in Gaborone, Botswana, with a distributed engineering and product team across North America, Asia, and Africa. We build AI-powered software for enterprises in Botswana and the wider region.</p>
+    <div class="wide-photo"><img src="/assets/img/cbd-aerial.jpg" alt="Gaborone's new central business district from above"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container two-col">
+    <h2 class="h1">The gap between global software and African enterprise</h2>
+    <div class="body">
+      <p>Global enterprise software is built, priced, and supported for global enterprise buyers. When it lands in an African context, it rarely fits. Integrations break on unreliable connectivity, pricing assumes USD budgets, and support teams have no feel for the workflows they're being asked to fix.</p>
+      <p>The local alternatives are often the opposite problem: under-engineered, built on tight budgets by teams that never had the room to do things properly.</p>
+      <p>We built The Brittany to sit in between. Product thinking, AI engineering, and real commercial experience in the African market, held to a bar that competes globally.</p>
     </div>
   </div>
 </section>
 
-<section class="bg-white">
+<section class="section bg-mist">
   <div class="container">
-    <div class="reveal">
-      <span class="eyebrow">How we work</span>
-      <h2 class="display-l" style="color:var(--navy-900);margin-bottom:56px;max-width:700px">Four principles we hold ourselves to.</h2>
-    </div>
-    <div class="values-grid">
-      <div class="reveal">
-        <div class="value-card">
-          <div class="mono-label" style="color:var(--teal-500)">Principle 01</div>
-          <h3 class="h2" style="color:var(--navy-900);margin:14px 0 12px">Specificity over generics</h3>
-          <p style="color:var(--gray-800);opacity:0.78;line-height:1.65">We build for exact problems, not broad markets. A product that does one thing exceptionally well beats one that does ten things passably.</p>
-        </div>
-      </div>
-      <div class="reveal" style="--reveal-delay:0.08s">
-        <div class="value-card">
-          <div class="mono-label" style="color:var(--teal-500)">Principle 02</div>
-          <h3 class="h2" style="color:var(--navy-900);margin:14px 0 12px">Ship, then improve</h3>
-          <p style="color:var(--gray-800);opacity:0.78;line-height:1.65">Working software in weeks, not decks and workshops. We'd rather get 60% of it wrong in production than 100% of it right in a deck.</p>
-        </div>
-      </div>
-      <div class="reveal" style="--reveal-delay:0.16s">
-        <div class="value-card">
-          <div class="mono-label" style="color:var(--teal-500)">Principle 03</div>
-          <h3 class="h2" style="color:var(--navy-900);margin:14px 0 12px">Local roots, global standards</h3>
-          <p style="color:var(--gray-800);opacity:0.78;line-height:1.65">African context, internationally competitive execution. We hold ourselves to the same engineering bar as any firm in London or New York.</p>
-        </div>
-      </div>
-      <div class="reveal" style="--reveal-delay:0.24s">
-        <div class="value-card">
-          <div class="mono-label" style="color:var(--teal-500)">Principle 04</div>
-          <h3 class="h2" style="color:var(--navy-900);margin:14px 0 12px">Long-term partners</h3>
-          <p style="color:var(--gray-800);opacity:0.78;line-height:1.65">We stay on after launch. We do not disappear. The software improves as your operations do, and we stay accountable for that improvement.</p>
-        </div>
-      </div>
-    </div>
+    <div class="sec-head"><h2 class="h1">Four principles we hold ourselves to</h2></div>
+    <div class="principles"><div class="principle"><svg class="ic" width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="m13 13 4 4"/></svg><h3 class="h3">Specificity over generics</h3><p>We build for exact problems, not broad markets. A product that does one thing exceptionally well beats one that does ten things passably.</p></div><div class="principle"><svg class="ic" width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4"/></svg><h3 class="h3">Ship, then improve</h3><p>Working software in weeks, not decks and workshops. We'd rather get 60% of it wrong in production than 100% of it right in a deck.</p></div><div class="principle"><svg class="ic" width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 18s6-5.2 6-10a6 6 0 0 0-12 0c0 4.8 6 10 6 10z"/><circle cx="10" cy="8" r="2.2"/></svg><h3 class="h3">Local roots, global standards</h3><p>African context, internationally competitive execution. We hold ourselves to the same engineering bar as any firm in London or New York.</p></div><div class="principle"><svg class="ic" width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="7" r="3"/><path d="M2 17c.6-3 2.8-4.5 5.5-4.5S12.4 14 13 17"/><path d="M13 4.2a3 3 0 0 1 0 5.6M15 12.8c1.6.6 2.6 2 3 4.2"/></svg><h3 class="h3">Long-term partners</h3><p>We stay on after launch. We do not disappear. The software improves as your operations do, and we stay accountable for that improvement.</p></div></div>
   </div>
 </section>
 
-<section class="bg-gray-50">
+<section class="section">
   <div class="container">
-    <div class="reveal">
-      <span class="eyebrow">The team</span>
-      <h2 class="display-l" style="color:var(--navy-900);margin-bottom:12px;max-width:700px">Small team. Deep benches.</h2>
-      <p class="body-l muted" style="max-width:620px;margin-bottom:48px">A Botswana-based partner and a distributed engineering and product team across North America, Asia, and Africa. Everyone here has shipped enterprise software before.</p>
-    </div>
-    <div class="team-grid">
-      <div class="reveal">
-        <div class="team-card">
-          <div class="avatar" aria-hidden="true"><span>KB</span></div>
-          <div class="mono-label muted" style="margin-top:20px">Founder &amp; Market Lead</div>
-          <h3 class="h3" style="color:var(--navy-900);margin-top:6px;margin-bottom:4px">Kabo Botlhole</h3>
-          <div style="font-family:var(--mono-font);font-size:11.5px;letter-spacing:0.04em;color:var(--teal-500);margin-bottom:12px">Gaborone, Botswana</div>
-          <p style="font-size:14px;line-height:1.6;color:var(--gray-800);opacity:0.78">Insurance and digital transformation, with deep local client context. Leads The Brittany's Botswana market entry and the QuoteIQ insurance wedge.</p>
-        </div>
-      </div>
-      <div class="reveal" style="--reveal-delay:0.06s">
-        <div class="team-card">
-          <div class="avatar" aria-hidden="true"><span>AH</span></div>
-          <div class="mono-label muted" style="margin-top:20px">Head of Engineering</div>
-          <h3 class="h3" style="color:var(--navy-900);margin-top:6px;margin-bottom:4px">Andrew Hewitt</h3>
-          <div style="font-family:var(--mono-font);font-size:11.5px;letter-spacing:0.04em;color:var(--teal-500);margin-bottom:12px">Japan</div>
-          <p style="font-size:14px;line-height:1.6;color:var(--gray-800);opacity:0.78">Full-stack engineering, from database and back-end to front-end. Decades shipping multi-platform apps across government, education, and the private sector. Now focused on AI-powered fintech.</p>
-        </div>
-      </div>
-      <div class="reveal" style="--reveal-delay:0.12s">
-        <div class="team-card">
-          <div class="avatar" aria-hidden="true"><span>TM</span></div>
-          <div class="mono-label muted" style="margin-top:20px">Head of Operations</div>
-          <h3 class="h3" style="color:var(--navy-900);margin-top:6px;margin-bottom:4px">Thomas Messier</h3>
-          <div style="font-family:var(--mono-font);font-size:11.5px;letter-spacing:0.04em;color:var(--teal-500);margin-bottom:12px">Canada</div>
-          <p style="font-size:14px;line-height:1.6;color:var(--gray-800);opacity:0.78">Oversees delivery, customer operations, and enterprise execution across projects. Ensures priorities are aligned, timelines are managed, and teams maintain strong communication, accountability, and operational follow-through.</p>
-        </div>
-      </div>
-      <div class="reveal" style="--reveal-delay:0.18s">
-        <div class="team-card">
-          <div class="avatar" aria-hidden="true"><span>KO</span></div>
-          <div class="mono-label muted" style="margin-top:20px">Head of Product</div>
-          <h3 class="h3" style="color:var(--navy-900);margin-top:6px;margin-bottom:4px">Kwaku Otchere</h3>
-          <div style="font-family:var(--mono-font);font-size:11.5px;letter-spacing:0.04em;color:var(--teal-500);margin-bottom:12px">United States</div>
-          <p style="font-size:14px;line-height:1.6;color:var(--gray-800);opacity:0.78">Product, design, and UX for tools busy operators actually use. Designs and ships the product experience across our platforms.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="bg-teal" style="padding:72px 0">
-  <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px">
-    <div class="reveal"><h2 class="h1" style="color:white;max-width:640px">Want to build with us?</h2></div>
-    <div class="reveal" style="--reveal-delay:.1s"><a href="/contact/" class="btn btn-white">Get in touch →</a></div>
+    <div class="sec-head"><h2 class="h1">Small team. Deep benches.</h2><p>A Botswana-based partner and a distributed engineering and product team across North America, Asia, and Africa. Everyone here has shipped enterprise software before.</p></div>
+    <div class="team"><div class="member"><div class="avatar" aria-hidden="true">KB</div><div class="role">Founder &amp; Market Lead</div><h3 class="h3">Kabo Botlhole</h3><div class="loc">Gaborone, Botswana</div><p>Insurance and digital transformation, with deep local client context. Leads The Brittany's Botswana market entry and the QuoteIQ insurance wedge.</p></div><div class="member"><div class="avatar" aria-hidden="true">AH</div><div class="role">Head of Engineering</div><h3 class="h3">Andrew Hewitt</h3><div class="loc">Japan</div><p>Full-stack engineering, from database and back-end to front-end. Decades shipping multi-platform apps across government, education, and the private sector. Now focused on AI-powered fintech.</p></div><div class="member"><div class="avatar" aria-hidden="true">TM</div><div class="role">Head of Operations</div><h3 class="h3">Thomas Messier</h3><div class="loc">Canada</div><p>Oversees delivery, customer operations, and enterprise execution across projects. Ensures priorities are aligned, timelines are managed, and teams maintain strong communication, accountability, and operational follow-through.</p></div><div class="member"><div class="avatar" aria-hidden="true">KO</div><div class="role">Head of Product</div><h3 class="h3">Kwaku Otchere</h3><div class="loc">United States</div><p>Product, design, and UX for tools busy operators actually use. Designs and ships the product experience across our platforms.</p></div></div>
   </div>
 </section>
 </main>
+<section class="section-tight">
+  <div class="container">
+    <div class="panel cta-panel">
+      <div><h2 class="h1">Want to build with us?</h2><p class="lead">Tell us about the problem you're trying to solve. We respond within two working days.</p></div>
+      <div class="actions"><a class="btn" href="/contact/">Start a conversation</a><a class="btn btn-outline" href="mailto:hello@thebrittany.ai">hello@thebrittany.ai</a></div>
+    </div>
+  </div>
+</section>
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
-      <div>
-        <div class="nav-logo" style="color:white;margin-bottom:18px"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1" y="25" width="26" height="2" rx="0.5" fill="currentColor"/><rect x="1" y="17" width="7" height="8" fill="currentColor"/><rect x="2.5" y="18.5" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="5" y="18.5" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="2.5" y="22" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="5" y="22" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="20" y="17" width="7" height="8" fill="currentColor"/><rect x="21.5" y="18.5" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="24" y="18.5" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="21.5" y="22" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="24" y="22" width="1.5" height="2" fill="black" opacity="0.3"/><rect x="8" y="13" width="12" height="12" fill="currentColor"/><rect x="9.5" y="14" width="1.2" height="11" fill="black" opacity="0.15"/><rect x="12.4" y="14" width="1.2" height="11" fill="black" opacity="0.15"/><rect x="15.3" y="14" width="1.2" height="11" fill="black" opacity="0.15"/><rect x="18.2" y="14" width="1.2" height="11" fill="black" opacity="0.15"/><rect x="7" y="11" width="14" height="2" fill="currentColor"/><rect x="11" y="4" width="6" height="7" fill="currentColor"/><rect x="12.5" y="5.5" width="1.2" height="2" fill="black" opacity="0.3"/><rect x="14.8" y="5.5" width="1.2" height="2" fill="black" opacity="0.3"/><polygon points="14,1 17,4 11,4" fill="currentColor"/></svg><span>The Brittany</span></div>
-        <p style="max-width:360px;color:rgba(255,255,255,0.66);font-size:15px;line-height:1.6">AI-powered workflow platforms, dashboards, and custom enterprise software. Rooted in Gaborone, built by a team across North America, Asia, and Africa.</p>
-      </div>
-      <div>
-        <h4>Quick Links</h4>
-        <a href="/solutions/">Solutions</a>
-        <a href="/about/">About</a>
-        <a href="/contact/">Contact</a>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <a href="mailto:hello@thebrittany.ai">hello@thebrittany.ai</a>
-        <div style="padding:6px 0;font-size:15px;color:rgba(255,255,255,0.82)">Gaborone, Botswana</div>
-        <div style="padding:6px 0;font-size:15px;color:rgba(255,255,255,0.82)">SADC region</div>
-      </div>
+      <div><a class="logo" href="/"><svg class="mark" width="26" height="26" viewBox="0 0 28 28" aria-hidden="true"><rect x="1" y="25" width="26" height="2" rx=".5" fill="currentColor"/><rect x="1" y="17" width="7" height="8" fill="currentColor"/><rect x="2.5" y="18.5" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="5" y="18.5" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="2.5" y="22" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="5" y="22" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="20" y="17" width="7" height="8" fill="currentColor"/><rect x="21.5" y="18.5" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="24" y="18.5" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="21.5" y="22" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="24" y="22" width="1.5" height="2" fill="#fff" opacity="1"/><rect x="8" y="13" width="12" height="12" fill="currentColor"/><rect x="9.5" y="14" width="1.2" height="11" fill="#fff" opacity="0.5"/><rect x="12.4" y="14" width="1.2" height="11" fill="#fff" opacity="0.5"/><rect x="15.3" y="14" width="1.2" height="11" fill="#fff" opacity="0.5"/><rect x="18.2" y="14" width="1.2" height="11" fill="#fff" opacity="0.5"/><rect x="7" y="11" width="14" height="2" fill="currentColor"/><rect x="11" y="4" width="6" height="7" fill="currentColor"/><rect x="12.5" y="5.5" width="1.2" height="2" fill="#fff" opacity="1"/><rect x="14.8" y="5.5" width="1.2" height="2" fill="#fff" opacity="1"/><polygon points="14,1 17,4 11,4" fill="currentColor"/></svg><span>The Brittany</span></a><p style="max-width:340px">AI-powered workflow platforms, dashboards and custom enterprise software. Rooted in Gaborone, built by a team across North America, Asia and Africa.</p></div>
+      <div><h4>Solutions</h4><a href="/solutions/insurance-financial/">Insurance &amp; financial services</a><a href="/solutions/ai-workflow-automation/">AI workflow automation</a><a href="/solutions/custom-enterprise-apps/">Custom enterprise apps</a><a href="/solutions/dashboards-control-towers/">Dashboards &amp; control towers</a></div>
+      <div><h4>Company</h4><a href="/about/">About</a><a href="/#work">Selected work</a><a href="/#how">How we work</a><a href="/contact/">Contact</a></div>
+      <div><h4>Contact</h4><a href="mailto:hello@thebrittany.ai">hello@thebrittany.ai</a><span>Gaborone, Botswana</span></div>
     </div>
-    <div class="footer-bottom"><span>© 2026 The Brittany. All rights reserved.</span></div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 The Brittany. All rights reserved.</span>
+      <span class="credits">Photos via Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:2014_11_16_International_Somali_Banking_09_(15640555109).jpg">AMISOM Public Information</a> (CC0); <a href="https://commons.wikimedia.org/wiki/File:Staples,_Staple_Remover,_and_Paper_Documents_(45985597455).jpg">Tony Webster</a> (CC BY-SA 2.0); <a href="https://commons.wikimedia.org/wiki/File:Femme_au_travail_dans_un_centre_d%27appel.jpg">Chifa79</a> (CC BY-SA 4.0); <a href="https://commons.wikimedia.org/wiki/File:Control_room_of_BESSY_II,_2025-06-28.jpeg">Nylki</a> (CC0); <a href="https://commons.wikimedia.org/wiki/File:Truck_park_in_Ledumadumane.jpg">Masedi Nonofo</a> (CC BY-SA 4.0); <a href="https://commons.wikimedia.org/wiki/File:Gaborone,_Botswana_New_Development_CBD.jpg">Jota</a> (public domain); <a href="https://commons.wikimedia.org/wiki/File:Buitepos_border_post.jpg">Hp.Baumeler</a> (CC BY-SA 4.0).</span>
+    </div>
   </div>
-  <div class="footer-accent-line"></div>
 </footer>
-<script src="/assets/site.js" defer></script>
 </body>
 </html>
