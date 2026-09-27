@@ -1,35 +1,35 @@
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
   <!-- Brand background -->
-  <rect width="32" height="32" rx="7" fill="#0A0F1E"/>
-  <!-- The Brittany building mark (from the site logo), teal on navy -->
+  <rect width="32" height="32" rx="7" fill="#14171A"/>
+  <!-- The Brittany building mark (from the site logo), sky blue on near-black -->
   <g transform="translate(3.08,3.08) scale(0.923)">
     <!-- Base platform -->
-    <rect x="1" y="25" width="26" height="2" rx="0.5" fill="#00B2A9"/>
+    <rect x="1" y="25" width="26" height="2" rx="0.5" fill="#4AAEF0"/>
     <!-- Left wing -->
-    <rect x="1" y="17" width="7" height="8" fill="#00B2A9"/>
-    <rect x="2.5" y="18.5" width="1.5" height="2" fill="#0A0F1E"/>
-    <rect x="5" y="18.5" width="1.5" height="2" fill="#0A0F1E"/>
-    <rect x="2.5" y="22" width="1.5" height="2" fill="#0A0F1E"/>
-    <rect x="5" y="22" width="1.5" height="2" fill="#0A0F1E"/>
+    <rect x="1" y="17" width="7" height="8" fill="#4AAEF0"/>
+    <rect x="2.5" y="18.5" width="1.5" height="2" fill="#14171A"/>
+    <rect x="5" y="18.5" width="1.5" height="2" fill="#14171A"/>
+    <rect x="2.5" y="22" width="1.5" height="2" fill="#14171A"/>
+    <rect x="5" y="22" width="1.5" height="2" fill="#14171A"/>
     <!-- Right wing -->
-    <rect x="20" y="17" width="7" height="8" fill="#00B2A9"/>
-    <rect x="21.5" y="18.5" width="1.5" height="2" fill="#0A0F1E"/>
-    <rect x="24" y="18.5" width="1.5" height="2" fill="#0A0F1E"/>
-    <rect x="21.5" y="22" width="1.5" height="2" fill="#0A0F1E"/>
-    <rect x="24" y="22" width="1.5" height="2" fill="#0A0F1E"/>
+    <rect x="20" y="17" width="7" height="8" fill="#4AAEF0"/>
+    <rect x="21.5" y="18.5" width="1.5" height="2" fill="#14171A"/>
+    <rect x="24" y="18.5" width="1.5" height="2" fill="#14171A"/>
+    <rect x="21.5" y="22" width="1.5" height="2" fill="#14171A"/>
+    <rect x="24" y="22" width="1.5" height="2" fill="#14171A"/>
     <!-- Centre body -->
-    <rect x="8" y="13" width="12" height="12" fill="#00B2A9"/>
-    <rect x="9.5" y="14" width="1.2" height="11" fill="#0A0F1E" opacity="0.55"/>
-    <rect x="12.4" y="14" width="1.2" height="11" fill="#0A0F1E" opacity="0.55"/>
-    <rect x="15.3" y="14" width="1.2" height="11" fill="#0A0F1E" opacity="0.55"/>
-    <rect x="18.2" y="14" width="1.2" height="11" fill="#0A0F1E" opacity="0.55"/>
+    <rect x="8" y="13" width="12" height="12" fill="#4AAEF0"/>
+    <rect x="9.5" y="14" width="1.2" height="11" fill="#14171A" opacity="0.55"/>
+    <rect x="12.4" y="14" width="1.2" height="11" fill="#14171A" opacity="0.55"/>
+    <rect x="15.3" y="14" width="1.2" height="11" fill="#14171A" opacity="0.55"/>
+    <rect x="18.2" y="14" width="1.2" height="11" fill="#14171A" opacity="0.55"/>
     <!-- Pediment / cornice -->
-    <rect x="7" y="11" width="14" height="2" fill="#00B2A9"/>
+    <rect x="7" y="11" width="14" height="2" fill="#4AAEF0"/>
     <!-- Central tower -->
-    <rect x="11" y="4" width="6" height="7" fill="#00B2A9"/>
-    <rect x="12.5" y="5.5" width="1.2" height="2" fill="#0A0F1E"/>
-    <rect x="14.8" y="5.5" width="1.2" height="2" fill="#0A0F1E"/>
+    <rect x="11" y="4" width="6" height="7" fill="#4AAEF0"/>
+    <rect x="12.5" y="5.5" width="1.2" height="2" fill="#14171A"/>
+    <rect x="14.8" y="5.5" width="1.2" height="2" fill="#14171A"/>
     <!-- Tower cap -->
-    <polygon points="14,1 17,4 11,4" fill="#00B2A9"/>
+    <polygon points="14,1 17,4 11,4" fill="#4AAEF0"/>
   </g>
 </svg>
