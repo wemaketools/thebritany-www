@@ -1,9 +1,15 @@
 /* The Brittany — progressive enhancement for the static site.
    Every page renders fully without this file; it only adds the
    mobile menu, scaling of the product screenshots on small screens,
-   and contact-form behaviour (the form opens a pre-filled email). */
+   and contact-form behaviour. */
 (function () {
   "use strict";
+
+  // ---------- Contact form recipient ----------
+  // Submissions are emailed by FormSubmit (formsubmit.co): free, no account.
+  // FORM_TO is FormSubmit's alias for the wemaketools Google Group, which
+  // forwards to the team; manage who receives enquiries in the group.
+  var FORM_TO = "f755a65f2b12294e400b4436c65f7616";
 
   // ---------- Fit product renders to their container ----------
   // Each [data-fit] wrapper holds a UI render designed at a fixed width.
@@ -98,9 +104,12 @@
       if (firstErr) { form.querySelector("#" + firstErr).focus(); return; }
 
       var btn = form.querySelector('button[type="submit"]');
-      if (btn) { btn.disabled = true; btn.textContent = "Opening email..."; }
+      if (btn) { btn.disabled = true; btn.textContent = "Sending..."; }
 
       var solution = form.querySelector("#solution");
+      var honey = form.querySelector('[name="_honey"]');
+      var formErr = form.querySelector("[data-form-error]");
+      if (formErr) formErr.hidden = true;
 
       var showSuccess = function () {
         var wrap = document.querySelector("[data-form-wrap]");
@@ -110,24 +119,48 @@
         box.setAttribute("role", "status");
         box.innerHTML =
           '<div class="tick" aria-hidden="true">&#10003;</div>' +
-          '<h2 class="h2">We\'ll reply within 2 working days</h2>';
+          '<h2 class="h2">Message sent</h2>' +
+          "<p>We'll reply within 2 working days</p>";
 
         wrap.innerHTML = "";
         wrap.appendChild(box);
       };
 
-      // Open the visitor's email app with the enquiry pre-filled.
-      var area = solution && solution.value ? solution.options[solution.selectedIndex].text : "Not specified";
-      var subject = "New enquiry from " + name + " (" + company + ")";
-      var body =
-        "Name: " + name + "\n" +
-        "Company: " + company + "\n" +
-        "Email: " + email + "\n" +
-        "Area: " + area + "\n\n" +
-        prob;
-      window.location.href =
-        "mailto:ospinto@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-      showSuccess();
+      var showFailure = function () {
+        if (btn) { btn.disabled = false; btn.textContent = "Send message"; }
+        if (formErr) formErr.hidden = false;
+      };
+
+      var payload = {
+        _subject: "New enquiry from " + name + " (" + company + ")",
+        _template: "table",
+        _replyto: email,
+        _honey: honey ? honey.value : "",
+        Name: name,
+        Company: company,
+        Email: email,
+        Area: solution && solution.value ? solution.options[solution.selectedIndex].text : "Not specified",
+        Message: prob
+      };
+
+      fetch("https://formsubmit.co/ajax/" + FORM_TO, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload)
+      })
+        .then(function (res) {
+          return res.json().then(function (d) {
+            var ok = res.ok && String(d.success) === "true";
+            // Keep FormSubmit's reply visible in the console for troubleshooting.
+            if (!ok && window.console) console.warn("FormSubmit:", res.status, d.message || d);
+            return ok;
+          });
+        })
+        .then(function (ok) { if (ok) showSuccess(); else showFailure(); })
+        .catch(function (err) {
+          if (window.console) console.warn("FormSubmit request failed:", err);
+          showFailure();
+        });
     });
   }
 })();
