@@ -108,6 +108,9 @@ button,input,select,textarea{font:inherit;color:inherit}
 .qhead{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end}
 .qhead .h1{font-size:clamp(56px,7vw,96px);line-height:.95}
 .qi-shot{padding:48px;margin-top:64px}
+.next-work{margin-top:128px}
+.fleet-shot{display:block}
+.fleet-shot img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--edge)}
 .pair{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:64px}
 .pair div{font-size:16px;color:var(--grey);border-top:1px solid var(--line);padding-top:22px}
 .pair b{color:var(--fg);display:block;font-size:18px;font-weight:600;margin-bottom:6px}
@@ -288,6 +291,7 @@ button,input,select,textarea{font:inherit;color:inherit}
   .hero{padding-top:64px}
   .hero-shot{padding:20px 20px 0;margin-top:48px}
   .qi-shot{padding:20px;margin-top:40px}
+  .next-work{margin-top:80px}
   .feature .panel,.split-visual .panel{padding:20px}
   .statement{padding:72px 0 88px}
   .pair,.info-cards,.stats{grid-template-columns:1fr;gap:0}
