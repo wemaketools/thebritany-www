@@ -105,30 +105,15 @@
       var showSuccess = function () {
         var wrap = document.querySelector("[data-form-wrap]");
         if (!wrap) return;
-        var first = name.split(" ")[0] || "there";
-
         var box = document.createElement("div");
         box.className = "form-success";
         box.setAttribute("role", "status");
         box.innerHTML =
           '<div class="tick" aria-hidden="true">&#10003;</div>' +
-          '<h2 class="h2">Finish in your email app</h2>' +
-          "<p></p>" +
-          '<button class="btn btn-outline" type="button" data-reset>Send another message</button>';
-
-        // Build the message text safely (never inject raw user input as HTML).
-        var p = box.querySelector("p");
-        p.appendChild(document.createTextNode("Thanks, " + first + ". Your email app should have opened with your message ready. Press send there, and we'll reply within two working days at "));
-        var strong = document.createElement("strong");
-        strong.textContent = email;
-        p.appendChild(strong);
-        p.appendChild(document.createTextNode("."));
+          '<h2 class="h2">We\'ll reply within 2 working days</h2>';
 
         wrap.innerHTML = "";
         wrap.appendChild(box);
-
-        var reset = box.querySelector("[data-reset]");
-        if (reset) reset.addEventListener("click", function () { window.location.reload(); });
       };
 
       // Open the visitor's email app with the enquiry pre-filled.
