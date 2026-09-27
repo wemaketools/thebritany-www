@@ -266,8 +266,6 @@ button,input,select,textarea{font:inherit;color:inherit}
 .footer-grid a.logo{display:flex}
 .footer-grid a:hover{color:var(--fg)}
 .footer-bottom{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:32px;font-size:13px}
-.credits{max-width:760px;color:var(--grey-2);font-size:12.5px}
-.credits a{text-decoration:underline;text-underline-offset:2px}
 
 /* ---------- responsive ---------- */
 @media (max-width:1080px){
