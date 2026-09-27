@@ -1,7 +1,7 @@
 /* The Brittany — progressive enhancement for the static site.
    Every page renders fully without this file; it only adds the
    mobile menu, scaling of the product screenshots on small screens,
-   and contact-form behaviour. */
+   and contact-form behaviour (the form opens a pre-filled email). */
 (function () {
   "use strict";
 
@@ -98,12 +98,9 @@
       if (firstErr) { form.querySelector("#" + firstErr).focus(); return; }
 
       var btn = form.querySelector('button[type="submit"]');
-      if (btn) { btn.disabled = true; btn.textContent = "Sending..."; }
+      if (btn) { btn.disabled = true; btn.textContent = "Opening email..."; }
 
       var solution = form.querySelector("#solution");
-      var botcheck = form.querySelector('[name="botcheck"]');
-      var formErr = form.querySelector("[data-form-error]");
-      if (formErr) formErr.hidden = true;
 
       var showSuccess = function () {
         var wrap = document.querySelector("[data-form-wrap]");
@@ -115,13 +112,13 @@
         box.setAttribute("role", "status");
         box.innerHTML =
           '<div class="tick" aria-hidden="true">&#10003;</div>' +
-          '<h2 class="h2">Message sent</h2>' +
+          '<h2 class="h2">Finish in your email app</h2>' +
           "<p></p>" +
           '<button class="btn btn-outline" type="button" data-reset>Send another message</button>';
 
         // Build the message text safely (never inject raw user input as HTML).
         var p = box.querySelector("p");
-        p.appendChild(document.createTextNode("Thanks, " + first + ". We'll reply within two working days at "));
+        p.appendChild(document.createTextNode("Thanks, " + first + ". Your email app should have opened with your message ready. Press send there, and we'll reply within two working days at "));
         var strong = document.createElement("strong");
         strong.textContent = email;
         p.appendChild(strong);
@@ -134,29 +131,18 @@
         if (reset) reset.addEventListener("click", function () { window.location.reload(); });
       };
 
-      var showFailure = function () {
-        if (btn) { btn.disabled = false; btn.textContent = "Send message"; }
-        if (formErr) formErr.hidden = false;
-      };
-
-      // Submissions go to Web3Forms, which emails them to hello@thebrittany.ai.
-      // The access key is public by design: it can only send to that inbox.
-      // Sent as FormData (a "simple" request) so the browser skips the CORS preflight.
-      var data = new FormData();
-      data.append("access_key", "dc0db3fd-c077-49ee-809a-001dcf6c69b4");
-      data.append("subject", "New enquiry from " + name + " (" + company + ")");
-      data.append("from_name", "The Brittany website");
-      data.append("name", name);
-      data.append("company", company);
-      data.append("email", email);
-      data.append("area", solution && solution.value ? solution.options[solution.selectedIndex].text : "Not specified");
-      data.append("message", prob);
-      if (botcheck && botcheck.checked) data.append("botcheck", "on");
-
-      fetch("https://api.web3forms.com/submit", { method: "POST", body: data })
-        .then(function (res) { return res.json().then(function (data) { return res.ok && data.success; }); })
-        .then(function (ok) { if (ok) showSuccess(); else showFailure(); })
-        .catch(showFailure);
+      // Open the visitor's email app with the enquiry pre-filled.
+      var area = solution && solution.value ? solution.options[solution.selectedIndex].text : "Not specified";
+      var subject = "New enquiry from " + name + " (" + company + ")";
+      var body =
+        "Name: " + name + "\n" +
+        "Company: " + company + "\n" +
+        "Email: " + email + "\n" +
+        "Area: " + area + "\n\n" +
+        prob;
+      window.location.href =
+        "mailto:ospinto@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+      showSuccess();
     });
   }
 })();
